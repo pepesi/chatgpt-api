@@ -121,7 +121,7 @@ export async function getOpenAIAuth({
       await waitForConditionOrAtCapacity(page, () =>
         page.waitForSelector('#__next .btn-primary', { timeout: timeoutMs })
       )
-      await delay(500)
+      await delay(1000)
 
       // click login button and wait for navigation to finish
       await Promise.all([
@@ -168,7 +168,7 @@ export async function getOpenAIAuth({
       } else {
         await page.waitForSelector('#username')
         await page.type('#username', email)
-        await delay(100)
+        await delay(1000)
 
         // NOTE: this is where you may encounter a CAPTCHA
         if (hasNopechaExtension) {
@@ -183,7 +183,7 @@ export async function getOpenAIAuth({
           }
         }
 
-        await delay(1200)
+        await delay(1500)
         const frame = page.mainFrame()
         const submit = await page.waitForSelector('button[type="submit"]', {
           timeout: timeoutMs
@@ -206,7 +206,7 @@ export async function getOpenAIAuth({
         submitP()
       ])
     } else {
-      await delay(2000)
+      await delay(4000)
       await checkForChatGPTAtCapacity(page, { timeoutMs })
     }
 
