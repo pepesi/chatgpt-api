@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IMAGE_REPO=${IMAGE_REPO:-kubegems}
-[[ ! -z $PUSH_IMAGE ]] && echo "env PUSH_IMAGE not set, not push image"
+[[ -z $PUSH_IMAGE ]] && echo "env PUSH_IMAGE not set, not push image"
 
 
 echo "========================================================================"

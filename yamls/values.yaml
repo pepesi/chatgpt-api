@@ -6,3 +6,9 @@ chatgpt:
   image: kubegems/chatgpt-api@latest
 feishubot:
   image: kubegems/chatgpt-api-feishubot@latest
+  ChatGPTHost: "chat-proxy"
+  FeishuAppID: ""
+  FeishuAppSecret: ""
+  FeishuBotName: ""  # 飞书机器人的名字
+  FeishuVerificationToken: ""
+  FeishuEventEncryptKey: ""

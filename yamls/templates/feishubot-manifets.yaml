@@ -31,8 +31,16 @@ spec:
             cpu: 500m
             memory: 500Mi
         env:
-        - name: CHATAPI_SVC
-          value: chatgpt-api
+        - name: ChatGPTHost
+          value: {{ .Values.feishubot.ChatGPTHost }}
+        - name: FeishuAppID
+          value: {{ .Values.feishubot.FeishuAppID }}
+        - name: FeishuAppSecret
+          value: {{ .Values.feishubot.FeishuAppSecret }}
+        - name: FeishuVerificationToken
+          value: {{ .Values.feishubot.FeishuVerificationToken }}
+        - name: FeishuEventEncryptKey
+          value: {{ .Values.feishubot.FeishuEventEncryptKey }}
         ports:
         - containerPort: 9999
           name: http
