@@ -1,0 +1,8 @@
+proxy:
+  image: kubegems/chatgpt-api-proxy@latest
+chatgpt:
+  PROXY_SERVER: you_proxy_server:port
+  NOPECHA_KEY: NOPECHA_KEY
+  image: kubegems/chatgpt-api@latest
+
+
