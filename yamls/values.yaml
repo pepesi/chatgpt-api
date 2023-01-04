@@ -4,5 +4,5 @@ chatgpt:
   PROXY_SERVER: you_proxy_server:port
   NOPECHA_KEY: NOPECHA_KEY
   image: kubegems/chatgpt-api@latest
-
-
+feishubot:
+  image: kubegems/chatgpt-api-feishubot@latest
