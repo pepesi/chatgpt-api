@@ -64,14 +64,14 @@ func NewFeishuOptions() *FeishuOptions {
 	}
 	opt := &FeishuOptions{
 		ChatGPTHost:               getEnvDefault("ChatGPTHost", "chatgpt-api"),
-		FeishuAppID:               getEnvDefault("FeishuAppID", ""),
-		FeishuAppSecret:           getEnvDefault("FeishuSecret", ""),
 		FeishuBotName:             getEnvDefault("FeishuBotName", "chatgpt-bot"),
+		FeishuAppID:               getEnvDefault("FeishuAppID", ""),
+		FeishuAppSecret:           getEnvDefault("FeishuAppSecret", ""),
 		FeishuVerificationToken:   getEnvDefault("FeishuVerificationToken", ""),
 		FeishuEventEncryptKey:     getEnvDefault("FeishuEventEncryptKey", ""),
 		ConversationExpireSeconds: expireSeconds,
 	}
-	if opt.FeishuAppID == "" || opt.FeishuAppSecret == "" || opt.FeishuEventEncryptKey == "" {
+	if opt.FeishuAppID == "" || opt.FeishuAppSecret == "" || opt.FeishuVerificationToken == "" {
 		panic("Environment variable (FeishuAppID, FeishuAppSecret, FeishuVerificationToken) must provide")
 	}
 	return opt
