@@ -1,14 +1,24 @@
 proxy:
   image: kubegems/chatgpt-api-proxy@latest
 chatgpt:
+  # 副本数，和账号的数量一致
+  replicas: 3 
+  # 处于某些原因，中国大陆需要代理服务器才能访问到openai
   PROXY_SERVER: you_proxy_server:port
+  # 验证码破解插件的key, 如果没有这个插件，需要在pod启动的时候，kubectl port-forward 将pod的5900端口转发到本地，用vnc客户端打开后手动点击
   NOPECHA_KEY: NOPECHA_KEY
   image: kubegems/chatgpt-api@latest
 feishubot:
   image: kubegems/chatgpt-api-feishubot@latest
+  # 代理服务(这个代理是指的带负载均衡，会话保持的那个东西)的地址
   ChatGPTHost: "chat-proxy"
+  # 飞书appid
   FeishuAppID: ""
+  # 飞书appsecret
   FeishuAppSecret: ""
-  FeishuBotName: ""  # 飞书机器人的名字
+  # 飞书机器人名字
+  FeishuBotName: ""
+  # 飞书的验证token,如果搞不明白是啥,可以去看飞书文档
   FeishuVerificationToken: ""
+  # 飞书的一个消息加密的key,如果搞不明白是啥,可以去看飞书文档 
   FeishuEventEncryptKey: ""
